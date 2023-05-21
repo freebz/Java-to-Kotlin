@@ -1,0 +1,23 @@
+// 예제 2.2 [project1:build.gradle]
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "1.5.0"
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+... 다른 프로젝트 설정 ...
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    ... 앱의 나머지 구현 의존 관계
+}
+
+tesks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions {
+        jvmTarget = "11"
+        javaParameters = true
+        freeCompilerArgs = ["-Xjvm-default=all"]
+    }
+}
+... 나머지 빌드 규칙

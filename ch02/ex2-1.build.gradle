@@ -1,0 +1,25 @@
+// 예제 2.1 [project0:build.gradle]
+
+plugins {
+    id("java")
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+
+... 다른 프로젝트 설정 ...
+
+dependencies {
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.10.0"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.0"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.0"
+    ... 앱의 나머지 구현 의존 관계
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.4.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.4.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testRuntimeOnly "org.junit.platform:unit-platform-launcher:1.4.2"
+    ... 앱의 나머지 테스트 의존 관계
+}
+
+... 나머지 빌드 규칙
